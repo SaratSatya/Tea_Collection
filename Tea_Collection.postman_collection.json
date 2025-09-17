@@ -1,0 +1,145 @@
+{
+	"readme_first":"This is a report that I got from postman. Nothing to worry that. Watch this document in its original place.",
+	"info": {
+		"_postman_id": "cd53816e-6f71-4d1c-bebf-ec0d499060a3",
+		"name": "Tea_Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44528208",
+		"_collection_link": "https://saratsatya.postman.co/workspace/333563c6-0acc-4f02-84b3-23fca35544ba/collection/44528208-cd53816e-6f71-4d1c-bebf-ec0d499060a3?action=share&source=collection_link&creator=44528208"
+	},
+	"item": [
+		{
+			"name": "Add tea to the collection",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"normal-tea\",\r\n    \"price\":\"rupees-20\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/teas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"teas"
+					]
+				},
+				"description": "## Overview\n\nThis API endpoint allows users to create a new tea entry in the system. By sending a POST request to the specified URL, users can add details about a tea, including its name and price.\n\n### Request Method\n\n`POST`\n\n### Endpoint URL\n\n`http://localhost:3000/teas`\n\n### Request Body\n\nThe request body must be in JSON format and should contain the following parameters:\n\n- **name** (string): The name of the tea being added.\n    \n- **price** (string): The price of the tea, represented as a string.\n    \n\n#### Example Request Body\n\n``` json\n{\n  \"name\": \"normal-tea\",\n  \"price\": \"rupees-20\"\n}\n\n ```\n\n### Response Body\n\nThe response will typically confirm the successful creation of the tea entry, often returning the details of the created tea in JSON format. The exact structure of the response will depend on the implementation but is expected to include at least the name and price of the tea.\n\n#### Example Response Body\n\n``` json\n{\n  \"name\": \"normal-tea\",\n  \"price\": \"rupees-20\",\n  \"message\": \"Tea created successfully\"\n}\n\n ```"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete tea from the collection",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/teas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"teas",
+						"1"
+					]
+				},
+				"description": "### DELETE /teas/{id}\n\nThis endpoint allows users to delete a specific tea item from the database using its unique identifier.\n\n#### Request Parameters\n\n- **id** (path parameter): The unique identifier of the tea item to be deleted. This should be a valid integer that corresponds to an existing tea in the database.\n    \n\n#### Expected Response\n\n- **Status Code**:\n    \n    - `204 No Content`: Indicates that the tea item was successfully deleted.\n        \n    - `404 Not Found`: Indicates that the tea item with the specified ID does not exist.\n        \n\n#### Notes\n\n- Ensure that the ID provided corresponds to an existing tea item to avoid a `404 Not Found` error.\n    \n- This action is irreversible; once a tea item is deleted, it cannot be recovered."
+			},
+			"response": []
+		},
+		{
+			"name": "Edit tea info from the collection",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"hot-tea\",\r\n    \"price\":\"rupees-25\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/teas/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"teas",
+						"2"
+					]
+				},
+				"description": "### Update Tea Item\n\nThis endpoint allows you to update an existing tea item in the inventory. The specific tea item is identified by its unique ID, which is included in the URL.\n\n**HTTP Method:** PUT  \n**Endpoint:** `http://localhost:3000/teas/{id}`  \n**Path Parameter:**\n\n- `id` (integer): The unique identifier of the tea item you wish to update.\n    \n\n**Request Body:**  \nThe request body must be in JSON format and should include the following parameters:\n\n- `name` (string): The new name of the tea item.\n    \n- `price` (string): The new price of the tea item, formatted as a string.\n    \n\n**Example Request Body:**\n\n``` json\n{\n  \"name\": \"hot-tea\",\n  \"price\": \"rupees-25\"\n}\n\n ```\n\n**Expected Response:**  \nUpon a successful update, the API will return a status code indicating success (e.g., 200 OK) along with the updated tea item details in the response body.\n\n**Notes:**\n\n- Ensure that the `id` in the URL corresponds to an existing tea item; otherwise, the request will fail.\n    \n- The price should be provided in the appropriate format as required by your application logic."
+			},
+			"response": []
+		},
+		{
+			"name": "Get tea info based on id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/teas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"teas",
+						"1"
+					]
+				},
+				"description": "## Get Tea by ID\n\nThis endpoint retrieves detailed information about a specific tea item identified by its unique ID.\n\n### Request\n\n- **Method**: GET\n    \n- **URL**: `http://localhost:3000/teas/{id}`\n    \n- **Path Parameter**:\n    \n    - `id` (integer): The unique identifier for the tea item you wish to retrieve. In this example, the ID is `1`.\n        \n\n### Headers\n\nNo specific headers are required for this request. However, standard headers such as `Accept` can be used to specify the response format, typically `application/json`.\n\n### Response\n\nUpon a successful request, the server will respond with a JSON object containing the details of the requested tea item. The structure of the response may include the following fields:\n\n- `id` (integer): The unique identifier for the tea item.\n    \n- `name` (string): The name of the tea.\n    \n- `type` (string): The type or category of the tea.\n    \n- `description` (string): A brief description of the tea.\n    \n- `price` (number): The price of the tea item.\n    \n- `available` (boolean): Indicates whether the tea is currently available for purchase.\n    \n\n### Example Response\n\n``` json\n{\n  \"id\": 1,\n  \"name\": \"Green Tea\",\n  \"type\": \"Herbal\",\n  \"description\": \"A soothing green tea with a refreshing taste.\",\n  \"price\": 2.50,\n  \"available\": true\n}\n\n ```\n\nThis endpoint is useful for clients needing to display detailed information about a specific tea item in their applications."
+			},
+			"response": []
+		},
+		{
+			"name": "Get all the tea info",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/teas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"teas"
+					]
+				},
+				"description": "## Endpoint: Retrieve Teas\n\n### HTTP Method\n\n`GET`\n\n### URL\n\n`http://localhost:3000/teas`\n\n### Description\n\nThis endpoint retrieves a list of teas available in the system. It is designed to provide users with information about various tea options.\n\n### Request Parameters\n\nThis endpoint does not require any query parameters or request body. Simply sending a GET request to the specified URL will suffice.\n\n### Expected Response\n\nUpon a successful request, the server will respond with a JSON object containing an array of tea items. Each item in the array typically includes details such as:\n\n- **id**: Unique identifier for the tea.\n    \n- **name**: The name of the tea.\n    \n- **type**: The type or category of the tea (e.g., herbal, black, green).\n    \n- **description**: A brief description of the tea.\n    \n- **price**: The cost of the tea.\n    \n\n### Notes\n\n- Ensure that the server is running and accessible at the specified URL.\n    \n- The response will be in JSON format, and users should handle it accordingly in their applications.\n    \n- This endpoint is read-only and does not modify any data on the server."
+			},
+			"response": []
+		}
+	]
+}
