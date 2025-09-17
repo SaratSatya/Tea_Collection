@@ -2,14 +2,15 @@
   "name": "project_2",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module", 
+  "type": "module",
   "scripts": {
-    "start":"nodemon index.js"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "dotenv": "^17.2.2",
     "express": "^5.1.0"
   },
   "devDependencies": {
